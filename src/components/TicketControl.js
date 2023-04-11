@@ -3,7 +3,7 @@ import NewTicketForm from './NewTicketForm';
 import TicketList from './TicketList';
 import EditTicketForm from './EditTicketForm';
 import TicketDetail from './TicketDetail';
-import db from './../firebase.js';
+import { db } from './../firebase.js';
 import { collection, addDoc, doc, onSnapshot, updateDoc, deleteDoc } from "firebase/firestore";
 
 
@@ -22,7 +22,7 @@ function TicketControl () {
         const tickets = [];
         collectionSnapshot.forEach((doc) => {
           tickets.push({
-            ... doc.data(),
+            ...doc.data(),
             id: doc.id
           });
         });
